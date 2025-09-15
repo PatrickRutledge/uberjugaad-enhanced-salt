@@ -30,7 +30,7 @@ UberJugaad Enhanced SALT Dataset/
 │   └── dataset-metadata.json         [Kaggle metadata]
 │
 ├── 💻 CODE EXAMPLES
-│   └── kaggle_starter_notebook.py    [Sample analysis code]
+│   └── uberjugaad-gmbh-notebook-for-data-exploration.ipynb    [Sample analysis code]
 │
 └── ⚖️ LICENSE                        [MIT License]
 ```
@@ -112,24 +112,56 @@ conn.close()
 - **dataset-metadata.json**: Kaggle dataset configuration
 
 ### Code
-- **kaggle_starter_notebook.py**: Python code for initial data exploration
+- **uberjugaad-gmbh-notebook-for-data-exploration.ipynb**: Jupyter notebook for comprehensive data exploration and analysis
+
+
+## Author
+**Patrick Rutledge**
+Enterprise systems specialist and independent data scientist created the fictional UberJugaad GmbH company and enhanced dataset for AI/ML research.
+
+## Project Description
+This dataset transforms SAP's SALT transactional tables into a full enterprise simulation by layering realistic emails, documents, and embedded patterns.
+All enhancements are synthetic but modeled on real-world communication and ERP logic.
+
+**GitHub**: [PatrickRutledge/uberjugaad-enhanced-salt](https://github.com/PatrickRutledge/uberjugaad-enhanced-salt)
+**Development Year**: 2025
+
+---
 
 ## Citation
+If you use this dataset, please cite both the enhanced version and the original SALT dataset:
+
+**Enhanced Dataset**
+Rutledge, P. (2025). *UberJugaad Enhanced SALT Dataset*. Kaggle.
+[https://www.kaggle.com/datasets/PatrickRutledge/uberjugaad-enhanced-salt-dataset](https://www.kaggle.com/datasets/PatrickRutledge/uberjugaad-enhanced-salt-dataset)
 
 ```bibtex
-@dataset{uberjugaad_enhanced_salt_2024,
+@dataset{rutledge2025uberjugaad,
   title={UberJugaad Enhanced SALT Dataset},
-  author={UberJugaad GmbH},
-  year={2024},
+  author={Rutledge, Patrick},
+  year={2025},
   publisher={Kaggle},
-  url={https://www.kaggle.com/datasets/[username]/uberjugaad-enhanced-salt-dataset}
+  url={https://www.kaggle.com/datasets/PatrickRutledge/uberjugaad-enhanced-salt-dataset}
+}
+```
+
+**Original SALT Dataset (Required)**
+Klein, T., Biehl, C., Costa, M., Sres, A., Kolk, J., & Hoffart, J. (2024). *SALT: Sales Autocompletion Linked Business Tables Dataset*. NeurIPS 2024 Third Table Representation Learning Workshop.
+
+```bibtex
+@inproceedings{klein2024salt,
+  title={{SALT}: Sales Autocompletion Linked Business Tables Dataset},
+  author={Klein, Tassilo and Biehl, Clemens and Costa, Margarida and Sres, Andre and Kolk, Jonas and Hoffart, Johannes},
+  booktitle={NeurIPS 2024 Third Table Representation Learning Workshop},
+  year={2024},
+  url={https://openreview.net/forum?id=UZbELpkWIr}
 }
 ```
 
 ## License
 
-MIT License for enhanced content / SAP License for original SALT data
+MIT License for enhanced content / SAP Sample Code License for original SALT data
 
 ## Acknowledgments
 
-Built on SAP's SALT dataset. Enhanced with synthetic business communications for AI/ML applications.
+Built on SAP's SALT dataset. Enhanced with synthetic business communications for AI/ML applications. The original SALT authors are not affiliated with these enhancements.

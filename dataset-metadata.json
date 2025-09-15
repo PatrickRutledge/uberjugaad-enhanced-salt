@@ -43,6 +43,10 @@
     {
       "path": "business_documents.parquet",
       "description": "32 meeting agendas and reports"
+    },
+    {
+      "path": "uberjugaad-gmbh-notebook-for-data-exploration.ipynb",
+      "description": "Jupyter notebook for comprehensive data exploration and analysis with visualizations"
     }
   ]
 }

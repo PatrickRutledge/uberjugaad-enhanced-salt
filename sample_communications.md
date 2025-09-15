@@ -59,7 +59,7 @@ Need immediate action:
 Sarah
 ```
 
-## Spam/Vendor Email (eye-BM Parody)
+## Spam/Vendor Email (eye-BM)
 
 ```
 From: watson.superior.ai@eye-bm.com
