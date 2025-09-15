@@ -1,0 +1,48 @@
+{
+  "title": "UberJugaad Enhanced SALT Dataset",
+  "id": "patrickrutledge/uberjugaad-enhanced-salt",
+  "description": "Enhanced SAP SALT dataset with 1.9M ERP transactions, 151,673 business emails, and 3,499 supporting documents. Complete enterprise ecosystem for AI/ML applications requiring pattern discovery, sentiment analysis, and multi-modal understanding.",
+  "licenses": [
+    {
+      "name": "MIT"
+    }
+  ],
+  "keywords": [
+    "nlp",
+    "email",
+    "business",
+    "sap",
+    "erp",
+    "enterprise",
+    "pattern discovery",
+    "document processing",
+    "multi-modal",
+    "bigquery"
+  ],
+  "resources": [
+    {
+      "path": "all_communications.parquet",
+      "description": "151,673 business emails with subjects, bodies, and metadata"
+    },
+    {
+      "path": "erp_transactions.parquet",
+      "description": "1.9M sales transactions with customer and product data"
+    },
+    {
+      "path": "sales_documents.parquet",
+      "description": "243,717 sales document headers"
+    },
+    {
+      "path": "sales_items.parquet",
+      "description": "1.9M sales line items with quantities and prices"
+    },
+    {
+      "path": "supporting_documents.parquet",
+      "description": "3,467 business documents (POs, invoices, shipping notices)"
+    },
+    {
+      "path": "business_documents.parquet",
+      "description": "32 meeting agendas and reports"
+    }
+  ]
+}
