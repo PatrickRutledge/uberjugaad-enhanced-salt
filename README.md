@@ -1,226 +1,135 @@
 # UberJugaad Enhanced SALT Dataset
 
 ## Overview
-This dataset combines SAP's SALT (simulated S/4HANA ERP data) with comprehensive business communications and documents, creating a realistic enterprise ecosystem for AI/ML applications.
+**1.9 million ERP transactions + 151,673 business emails + 3,499 supporting documents**
 
-## Dataset Statistics
+Comprehensive enterprise dataset from UberJugaad GmbH, a EUR 14.8B German industrial supplier with 1,467 employees serving 15,606 customers. Enhanced version of the SAP SALT dataset with realistic business communications and documents.
 
-### Company Profile
-- **Company**: UberJugaad GmbH
-- **Industry**: Industrial Equipment & Supplies
-- **Headquarters**: Frankfurt, Germany
-- **Employees**: 1,467 across 7 departments
-- **Annual Revenue**: €14.8 Billion
-- **Operating Plants**: 3 manufacturing facilities
+## Dataset Structure
 
-### Employee Distribution
-- Sales: 292 employees
-- Customer Service: 238 employees
-- Operations: 215 employees
-- Finance: 183 employees
-- Procurement: 146 employees
-- IT: 131 employees
-- HR: 108 employees
-- Executive Leadership: 154 employees
-
-### Customer Base
-- **Total Customers**: 15,606
-- **Customer Segments**:
-  - Enterprise: 1,124 customers
-  - Large: 2,341 customers
-  - Medium: 4,682 customers
-  - Small: 5,463 customers
-  - Micro: 1,996 customers
-
-### Transactional Data
-- **Time Period**: January 2019 - December 2020 (24 months)
-- **Total Transactions**: 1.9 million sales records
-- **Product Catalog**: 10-digit product codes
-- **Plants**: 3 primary manufacturing locations
-- **Order Volume**: Ranging from single units to 10,000+ unit orders
-
-## Communication Dataset
-
-### Volume
-- **Total Communications**: 151,673 business emails
-- **Time Span**: Full year 2020 with historical references
-
-### Communication Types
-| Type | Count | Description |
-|------|-------|-------------|
-| Customer Communications | 55,425 | B2B customer interactions, inquiries, complaints |
-| Regular Business | 37,285 | Daily operations, sales, finance, procurement |
-| Spam/Noise | 42,246 | Realistic inbox noise, vendor solicitations |
-| Organizational | 15,593 | IT support, HR, compliance, training |
-| Internal Escalations | 1,124 | Cross-department issue handling |
-
-### Communication Characteristics
-- **Languages**: English (business standard)
-- **Urgency Levels**: 1-5 scale (routine to critical)
-- **Sentiment Range**: Positive, neutral, negative, urgent, final
-- **Departments Involved**: All 7 departments
-- **Response Patterns**: Includes non-responses, delays, escalations
-
-## Supporting Documents
-
-### Document Types
-- Purchase Orders matching ERP transactions
-- Invoices with payment terms and disputes
-- Quality Reports documenting defects
-- Shipping Notices with delivery confirmations
-- Credit Memos for returns/adjustments
-- Meeting Agendas and minutes
-- Vendor Scorecards
-- Compliance Reports
-
-### Document Statistics
-- **Total Documents**: 3,499
-- **Document Categories**: 8 types
-- **Linked Transactions**: Documents reference actual ERP order numbers
-- **Problem Indicators**: Various flags indicating business issues
-
-## Data Schema
-
-### ERP Tables (Original SALT)
-- `JoinedTables_train.parquet` - Main transactional data
-- `I_SalesDocument_train.parquet` - Sales document headers
-- `I_SalesDocumentItem_train.parquet` - Sales line items
-
-### Communication Schema
-```python
-{
-  'message_id': 'unique identifier',
-  'timestamp': 'ISO datetime',
-  'from': 'sender email',
-  'from_name': 'sender name',
-  'to': 'recipient email',
-  'to_name': 'recipient name',
-  'subject': 'email subject',
-  'body': 'email content',
-  'sentiment': 'emotional tone',
-  'urgency': 'priority level (1-5)',
-  'communication_type': 'classification',
-  'communication_class': 'major category'
-}
+```
+UberJugaad Enhanced SALT Dataset/
+│
+├── 📊 CORE DATA FILES (83.5 MB)
+│   ├── all_communications.parquet     [151,673 emails - 6.9 MB]
+│   ├── erp_transactions.parquet       [1.9M transactions - 40.8 MB]
+│   ├── sales_documents.parquet        [243K headers - 7.1 MB]
+│   ├── sales_items.parquet            [1.9M line items - 28.4 MB]
+│   ├── supporting_documents.parquet   [3,467 documents - 0.1 MB]
+│   └── business_documents.parquet     [32 reports - 22 KB]
+│
+├── 📧 EMAIL DATABASE (76 MB)
+│   └── uberjugaad_email.db           [SQLite: 151K emails + 19K contacts]
+│
+├── 📖 DOCUMENTATION
+│   ├── README.md                      [This file - overview]
+│   ├── columns.md                     [Column descriptions]
+│   ├── quickstart.md                  [Getting started guide]
+│   ├── sample_communications.md       [Email examples]
+│   ├── business_docs.md              [Document conversion guide]
+│   └── dataset-metadata.json         [Kaggle metadata]
+│
+├── 💻 CODE EXAMPLES
+│   └── kaggle_starter_notebook.py    [Sample analysis code]
+│
+└── ⚖️ LICENSE                        [MIT License]
 ```
 
-### Document Schema
-```python
-{
-  'document_type': 'document classification',
-  'document_id': 'unique identifier',
-  'order_number': 'linked ERP transaction',
-  'customer_id': 'customer reference',
-  'created_date': 'document date',
-  'status_flags': 'problem indicators',
-  'content': 'document details'
-}
-```
+*Note: All files are in the root directory for easy access. This diagram shows logical groupings.*
+
+## Dataset Contents
+
+| Category | Files | Total Size | Description |
+|----------|-------|------------|-------------|
+| **Core Data** | 6 parquet files | 83.5 MB | ERP transactions, emails, documents |
+| **Email Database** | 1 SQLite file | 76 MB | Complete email system backup |
+| **Documentation** | 6 files | < 1 MB | Guides, examples, metadata |
+| **Code** | 1 Python file | < 1 MB | Starter notebook |
+
+## Key Features
+- **Realistic business ecosystem**: Complete email threads, documents, and transactions
+- **Natural language content**: 151K emails with realistic subjects and bodies
+- **Linked data**: All files connected via SALESDOCUMENT and customer_id
+- **Time-synchronized**: Chronologically consistent 2019-2020 data
+- **Discovery-oriented**: Patterns embedded in content, not labels
 
 ## Use Cases
-
-### Business Intelligence
-- Customer behavior analysis
-- Communication pattern detection
-- Sentiment trend analysis
-- Operational efficiency metrics
-
-### Machine Learning Applications
 - Email classification and routing
-- Customer churn prediction
-- Sentiment analysis
+- Sentiment and urgency detection
+- Customer behavior analysis
 - Document information extraction
-- Anomaly detection
-- Time series forecasting
+- Business process mining
+- Anomaly and pattern detection
+- Natural language understanding
+- Multi-modal analysis (text + structured data)
 
-### Natural Language Processing
-- Named entity recognition
-- Email summarization
-- Intent classification
-- Response generation
-- Topic modeling
-
-### Process Mining
-- Communication flow analysis
-- Response time optimization
-- Escalation pattern detection
-- Compliance monitoring
-
-## Files Included
-
-| File | Size | Description |
-|------|------|-------------|
-| `all_communications_master.parquet` | 7.5 MB | Combined all communications |
-| `customer_communications_final.parquet` | 2.3 MB | Customer emails |
-| `expanded_regular_business_communications.parquet` | 2.2 MB | Daily business emails |
-| `expanded_organizational_communications.parquet` | 800 KB | IT/HR/Compliance |
-| `spam_communications.parquet` | 1.4 MB | Noise/spam emails |
-| `internal_communications.parquet` | 85 KB | Internal escalations |
-| `supporting_documents.parquet` | 163 KB | Business documents |
-| `regular_business_documents.parquet` | 23 KB | Meeting/report documents |
-| `JoinedTables_train.parquet` | 42.8 MB | Main ERP transactions |
-| `I_SalesDocument_train.parquet` | 7.5 MB | Sales headers |
-| `I_SalesDocumentItem_train.parquet` | 29.8 MB | Sales line items |
-
-## Getting Started
+## Quick Start
 
 ```python
 import pandas as pd
 
-# Load all communications
-comms = pd.read_parquet('all_communications_master.parquet')
-print(f"Total communications: {len(comms):,}")
+# Load emails
+emails = pd.read_parquet('all_communications.parquet')
+print(f"Total emails: {len(emails):,}")
 
-# Load ERP transactions
-transactions = pd.read_parquet('JoinedTables_train.parquet')
-print(f"Total transactions: {len(transactions):,}")
+# Load transactions
+transactions = pd.read_parquet('erp_transactions.parquet')
+print(f"Total orders: {len(transactions):,}")
 
-# Analyze sentiment distribution
-print(comms['sentiment'].value_counts())
+# Find emails mentioning specific orders
+order = "0002315309"
+order_emails = emails[emails['body'].str.contains(order, na=False)]
+print(f"Emails about order {order}: {len(order_emails)}")
 
-# Find urgent communications
-urgent = comms[comms['urgency'] >= 4]
-print(f"Urgent communications: {len(urgent):,}")
+# Query email database
+import sqlite3
+conn = sqlite3.connect('uberjugaad_email.db')
+cursor = conn.cursor()
+cursor.execute("SELECT COUNT(*) FROM contacts WHERE contact_type = 'external'")
+print(f"External contacts: {cursor.fetchone()[0]:,}")
+conn.close()
 ```
 
-## Data Quality Notes
+## File Descriptions
 
-- All PII has been simulated/generated
-- Email addresses follow consistent domain patterns
-- Timestamps are realistic and chronological
-- Document references link to actual transaction IDs
-- Communication threads maintain context
-- Realistic response rates (~65-80% for required actions)
+### Core Data Files
+- **all_communications.parquet**: All business emails with subjects, bodies, and metadata
+- **erp_transactions.parquet**: SAP sales transactions with customer and product data
+- **sales_documents.parquet**: Sales document headers from SAP
+- **sales_items.parquet**: Detailed line items for each transaction
+- **supporting_documents.parquet**: Business documents (POs, invoices, shipping notices)
+- **business_documents.parquet**: Meeting agendas and reports
 
-## Ethical Considerations
+### Email Database
+- **uberjugaad_email.db**: SQLite database simulating Exchange backup with emails, contacts, folders
 
-This is simulated data created for educational and research purposes. No real company data or personal information is included. The dataset demonstrates realistic business operations without exposing actual business intelligence.
+### Documentation
+- **README.md**: Dataset overview and structure (this file)
+- **columns.md**: Detailed column descriptions for all files
+- **quickstart.md**: Getting started guide with code examples
+- **sample_communications.md**: Example emails showing variety and realism
+- **business_docs.md**: Guide to converting documents to PDF/HTML
+- **dataset-metadata.json**: Kaggle dataset configuration
 
-## License
-
-- Original SALT Dataset: SAP License
-- Enhanced Communications: MIT License
-- Generated Documents: MIT License
+### Code
+- **kaggle_starter_notebook.py**: Python code for initial data exploration
 
 ## Citation
 
-If you use this dataset, please cite:
-```
-@dataset{uberjugaad_salt_2024,
+```bibtex
+@dataset{uberjugaad_enhanced_salt_2024,
   title={UberJugaad Enhanced SALT Dataset},
-  author={Patrick Rutledge},
+  author={UberJugaad GmbH},
   year={2024},
-  publisher={GitHub},
-  url={https://github.com/PatrickRutledge/BigQuery-AI}
+  publisher={Kaggle},
+  url={https://www.kaggle.com/datasets/[username]/uberjugaad-enhanced-salt-dataset}
 }
 ```
 
-## Contact
+## License
 
-For questions or issues: [Create an issue on GitHub](https://github.com/PatrickRutledge/BigQuery-AI/issues)
+MIT License for enhanced content / SAP License for original SALT data
 
 ## Acknowledgments
 
-- SAP for the original SALT dataset
-- The open-source community for data processing tools
-- Anthropic's Claude for assistance in data generation
+Built on SAP's SALT dataset. Enhanced with synthetic business communications for AI/ML applications.
