@@ -1,5 +1,7 @@
 # UberJugaad Enhanced SALT Dataset
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17125322.svg)](https://doi.org/10.5281/zenodo.17125322)
+
 ## Overview
 **1.9 million ERP transactions + 151,673 business emails + 3,499 supporting documents**
 
@@ -156,6 +158,28 @@ Klein, T., Biehl, C., Costa, M., Sres, A., Kolk, J., & Hoffart, J. (2024). *SALT
   year={2024},
   url={https://openreview.net/forum?id=UZbELpkWIr}
 }
+```
+
+## Citation
+
+If you use this dataset in your research, please cite:
+
+```bibtex
+@dataset{rutledge_patrick_2025_17125322,
+  author       = {Rutledge, Patrick},
+  title        = {{UberJugaad GmbH Enhanced SALT Dataset}},
+  month        = sep,
+  year         = 2025,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.17125322},
+  url          = {https://doi.org/10.5281/zenodo.17125322}
+}
+```
+
+APA format:
+```
+Rutledge, P. (2025). UberJugaad GmbH Enhanced SALT Dataset (Version v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17125322
 ```
 
 ## License
